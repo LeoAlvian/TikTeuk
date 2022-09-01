@@ -24,13 +24,15 @@ module.exports = {
         ' 50%': '50%',
       },
       backgroundColor: {
-        primary: '#e1e1e2',
-        accent: '#F51997',
+        primary: '#eee',
+        // accent: '#F51997',
+        accent: '#12b564',
         blur: '#030303',
       },
       colors: {
         primary: 'rgb(22, 24, 35)',
-        accent: '#F51997',
+        // accent: '#F51997',
+        accent: '#12b564',
       },
       height: {
         '88vh': '88vh',
