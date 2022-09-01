@@ -68,12 +68,12 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                         </div>
                     </Link>
                     <p className='font-normal'>{post.caption}</p>
-                    <p className='font-normal'>{post.likes.length || 0}</p>
+                    {/* <p className='font-normal'>{post.likes.length || 0}</p> */}
                 </div>
             </div>
         </div>
         {/* Video  */}
-        <div className="lg:ml-20 flex gap-4 relative">
+        <div className="lg:ml-20 flex gap-4 relative w-fit">
             <div 
             className="rounded-3xl"
             onMouseEnter={() => setIsHover(true)}
@@ -84,12 +84,13 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                     src={post.video.asset.url}
                     ref={videoRef}
                     loop
-                    className='lg:w-full lg:h-[500px] h-[300px] md:h-[400px] w-[200px] rounded-2xl cursor-pointer bg-black'
-                    ></video>
+                    className='lg:w-[284px] lg:h-[504px] h-[300px] md:h-[300px] md:w-[300px] w-[200px] rounded-2xl cursor-pointer bg-black'
+                    >
+                    </video>
                 </Link>
 
                 {isHover && (
-                    <div className='absolute bottom-6 left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between p-3 cursor-pointer bg-black'>
+                    <div className='absolute lg:w-full bottom-6 left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between p-3 cursor-pointer'>
                             {playing ? (
                                 <button onClick={onVideoPress}>
                                     <BsFillPauseFill className='text-white text-xl lg:text-3xl'/>
