@@ -1,31 +1,34 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
-import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+import { GiBallerinaShoes, GiBalloonDog } from 'react-icons/gi';
+import { FaPaw } from 'react-icons/fa';
+import { CgTerminal } from 'react-icons/cg'
+import { BiFootball } from 'react-icons/bi'
+import { MdOutlineSurfing } from 'react-icons/md'
+import { IoRestaurantSharp,IoGameController } from 'react-icons/io5'
 
 export const topics = [
   {
     name: 'coding',
-    icon: <BsCode />,
+    icon: <CgTerminal />,
   },
   {
     name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    icon: <GiBalloonDog />,
   },
   {
     name: 'gaming',
-    icon: <FaGamepad />,
+    icon: <IoGameController />,
   },
   {
     name: 'food',
-    icon: <GiCakeSlice />,
+    icon: <IoRestaurantSharp />,
   },
   {
     name: 'dance',
-    icon: <GiGalaxy />,
+    icon: <GiBallerinaShoes />,
   },
   {
-    name: 'beauty',
-    icon: <GiLipstick />,
+    name: 'lifestyle',
+    icon: <MdOutlineSurfing />,
   },
   {
     name: 'animals',
@@ -33,7 +36,7 @@ export const topics = [
   },
   {
     name: 'sports',
-    icon: <FaMedal />,
+    icon: <BiFootball />,
   },
 ];
 

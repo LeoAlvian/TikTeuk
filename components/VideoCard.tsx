@@ -3,8 +3,9 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi'
-import { BsPlay, BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs'
+import { BsPlay, BsFillPlayFill, BsFillPauseFill, BsFillChatLeftDotsFill } from 'react-icons/bs'
 import { GoVerified } from 'react-icons/go'
+import { MdFavorite } from 'react-icons/md'
 
 import { Video } from '../types'
 import { verify } from 'crypto'
@@ -73,9 +74,9 @@ const VideoCard: NextPage<IProps> = ({post}) => {
             </div>
         </div>
         {/* Video  */}
-        <div className="lg:ml-20 flex gap-4 relative w-fit">
+        <div className="lg:ml-20 flex gap-4 relative">
             <div 
-            className="rounded-3xl"
+            className="rounded-3xl relative w-fit"
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             >
@@ -111,6 +112,20 @@ const VideoCard: NextPage<IProps> = ({post}) => {
                             )}
                     </div>
                 )}
+            </div>
+            <div className="flex items-end mb-12">
+                <div className="flex flex-col gap-2">
+                    <div 
+                    className='bg-primary rounded-full p-2 md:p-3 text-gray-800 cursor-pointer' 
+                    onClick={() => {}}>
+                        <MdFavorite className='text-lg md:text-2xl' />
+                    </div>
+                    <div 
+                    className='bg-primary rounded-full p-2 md:p-3 text-gray-800 cursor-pointer' 
+                    onClick={() => {}}>
+                        <BsFillChatLeftDotsFill className='text-lg md:text-2xl' />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
