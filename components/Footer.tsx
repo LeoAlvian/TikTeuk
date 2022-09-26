@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 import { footerList1, footerList2, footerList3 } from '../utils/constants'
@@ -19,7 +20,9 @@ const Footer = () => {
       <List items={footerList1} mt={false} />
       <List items={footerList2} mt />
       <List items={footerList3} mt />
-      <p className='text-gray-400 text-sm mt-5'>&copy; 2022 TikTeuk</p>
+      <a target="_blank" href='https://www.instagram.com/l__alvian'>
+        <p className='text-gray-400 text-sm mt-5 hover:underline cursor-pointer'>&copy; 2022 L.A TikTeuk</p>
+      </a>
     </div>
   )
 }

@@ -10,12 +10,19 @@ import { MdFavorite } from 'react-icons/md'
 import { Video } from '../types'
 import { verify } from 'crypto'
 import LikeButton from './LikeButton'
+import axios from 'axios'
+import useAuthStore from '../store/authStore'
+import { BASE_URL } from '../utils'
 
 interface IProps {
     post: Video
 }
 
 const VideoCard: NextPage<IProps> = ({post}) => {
+
+    const [postVid, setPostVid] = useState(post)
+
+    const { userProfile }: any = useAuthStore()
 
     const [isHover, setIsHover] = useState(false)
     const [playing, setPlaying] = useState(false)
@@ -38,6 +45,18 @@ const VideoCard: NextPage<IProps> = ({post}) => {
             videoRef.current.muted = isVideoMuted
         }
     }, [isVideoMuted])
+
+    const handleLike = async (like: boolean) => {
+        if(userProfile) {
+          const { data } = await axios.put(`${BASE_URL}/api/like`, {
+            userId: userProfile._id,
+            postId: postVid._id,
+            like
+          })
+    
+          setPostVid({ ...postVid, likes: data.likes })
+        }
+      }
 
 
   return (
@@ -80,15 +99,17 @@ const VideoCard: NextPage<IProps> = ({post}) => {
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
             >
-                <Link href={`/detail/${post._id}`}>
-                    <video 
-                    src={post.video.asset.url}
-                    ref={videoRef}
-                    loop
-                    className='lg:w-[284px] lg:h-[504px] h-[300px] md:h-[300px] md:w-[300px] w-[200px] rounded-2xl cursor-pointer bg-black'
-                    >
-                    </video>
-                </Link>
+                
+                <video 
+                src={post.video.asset.url}
+                onClick={onVideoPress}
+                ref={videoRef}
+                loop
+                // controls
+                className='lg:w-[284px] lg:h-[504px] h-[300px] md:h-[300px] md:w-[300px] w-[200px] rounded-2xl cursor-pointer bg-black'
+                >
+                </video>
+                
 
                 {isHover && (
                     <div className='absolute lg:w-full bottom-6 left-8 md:left-14 lg:left-0 flex gap-10 lg:justify-between p-3 cursor-pointer'>
@@ -115,16 +136,24 @@ const VideoCard: NextPage<IProps> = ({post}) => {
             </div>
             <div className="flex items-end mb-12">
                 <div className="flex flex-col gap-2">
-                    <div 
-                    className='bg-primary rounded-full p-2 md:p-3 text-gray-800 cursor-pointer' 
-                    onClick={() => {}}>
-                        <MdFavorite className='text-lg md:text-2xl' />
-                    </div>
-                    <div 
-                    className='bg-primary rounded-full p-2 md:p-3 text-gray-800 cursor-pointer' 
-                    onClick={() => {}}>
-                        <BsFillChatLeftDotsFill className='text-lg md:text-2xl' />
-                    </div>
+                    {/* <MdFavorite className='text-lg md:text-2xl' /> */}
+                    {userProfile && (
+                        <LikeButton 
+                            likes = {postVid.likes}
+                            handleLike = {() => handleLike(true)}
+                            handleDislike = {() => handleLike(false)}
+                        />
+                    )}
+                    <Link href={`/detail/${post._id}`}>
+                        <div className="flex flex-col items-center">
+                            <div 
+                            className='bg-primary rounded-full p-2 md:p-3 text-gray-800 cursor-pointer' 
+                            onClick={() => {}}>
+                                <BsFillChatLeftDotsFill className='text-lg md:text-2xl' />
+                            </div>
+                            <p className="text-sm font-bold text-gray-600">{postVid?.comments?.length || 0}</p>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -11,7 +11,7 @@ export const topics = [
     icon: <CgTerminal />,
   },
   {
-    name: 'comedy',
+    name: 'funny',
     icon: <GiBalloonDog />,
   },
   {
