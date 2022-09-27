@@ -42,6 +42,10 @@ const Upload = () => {
         }
     }
 
+    const handleDiscard = () => {
+        router.push('/')
+    }
+
     const handlePost = async () => {
         if(caption && videoAsset?._id && category) {
             setSavingPost(true)
@@ -78,7 +82,7 @@ const Upload = () => {
                     <p className='text-2xl font-bold'>Upload Video</p>
                     <p className='text-md text-gray-400'>Post a video to your account</p>
                 </div>
-                <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 mb-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-accent hover:bg-gray-100">
+                <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 mb-10 w-[260px] p-10 cursor-pointer hover:border-accent hover:bg-gray-100">
                     {isLoading ? (
                         <p>Uploading...</p>
                     ) : (
@@ -89,7 +93,7 @@ const Upload = () => {
                                         src={videoAsset.url}
                                         loop
                                         controls
-                                        className='rounded-xl h-[450px] mt-16 bg-black'
+                                        className='rounded-xl h-[450px] mt-2 bg-black'
                                     >
 
                                     </video>
@@ -152,7 +156,7 @@ const Upload = () => {
                 </select>
                 <div className='flex gap-6 mt-10'>
                         <button
-                            onClick={() => {}}
+                            onClick={handleDiscard}
                             type='button'
                             className='border-gray-300 border-2 text-md font-medium p-2 rounded w-28 lg:w-44 outline-none'
                         >Discard

@@ -147,7 +147,7 @@ const Detail = ({ postDetails } : IProps) => {
           </div>
           {/* caption  */}
           <p className="px-10 text-lg text-gray-600">{ post.caption }</p>
-          <div className="mt-10 px-10">
+          <div className="mt-6 mb-4 px-10">
             {userProfile && (
               <LikeButton 
                 likes = {post.likes}
