@@ -20,7 +20,7 @@ const Footer = () => {
       <List items={footerList1} mt={false} />
       <List items={footerList2} mt />
       <List items={footerList3} mt />
-      <a target="_blank" href='https://www.instagram.com/l__alvian'>
+      <a target="_blank" rel="noreferrer" href='https://www.instagram.com/l__alvian'>
         <p className='text-gray-400 text-sm mt-5 hover:underline cursor-pointer'>&copy; 2022 L.A TikTeuk</p>
       </a>
     </div>
