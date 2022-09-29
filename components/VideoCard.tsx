@@ -18,7 +18,13 @@ interface IProps {
     post: Video
 }
 
+// document.body.style = 'background: white;';
+// const bodyColor: HTMLBodyElement = document.getElementsByTagName('body')
+// bodyColor.setAttribute('style')
+
 const VideoCard: NextPage<IProps> = ({post}) => {
+
+    
 
     const [postVid, setPostVid] = useState(post)
 
