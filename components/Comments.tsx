@@ -19,7 +19,7 @@ interface IComment {
   comment: string,
   lenght?: number,
   _key: string,
-  postedBy: { _ref: string; _id: string }
+  postedBy: { _ref: string }
 }
 
 const Comments = ({ comment, setComment, addComment, comments, isPostingComment } : IProps) => {
@@ -47,19 +47,19 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
                           layout='responsive'
                         />
                       </div>
-                      <div className="hidden xl:block">
+                      <div className="">
                         <p className='flex gap-1 items-center text-md font-bold text-primary lowercase'>
                           {user.userName.replaceAll(' ','')}
                           <GoVerified className='text-blue-400' />
                         </p>
-                        <p className='capitalize text-gray-400 text-xs'>
+                        <p className='capitalize text-gray-400 text-xs hidden xl:block'>
                           {user.userName}
                         </p>
                       </div>
                     </div>
                   </Link>
                   <div>
-                    <p>
+                    <p className=''>
                       {item.comment}
                     </p>
                   </div>
@@ -72,7 +72,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
         )}
       </div>
       {userProfile && (
-        <div className='absolute bottom-0 left-0 pb-6 px-2 md:px-10'>
+        <div className='lg:pb-6 px-2 md:px-10'>
           <form
             onSubmit={addComment}
             className='flex gap-4'
