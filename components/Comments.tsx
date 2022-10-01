@@ -72,7 +72,7 @@ const Comments = ({ comment, setComment, addComment, comments, isPostingComment 
         )}
       </div>
       {userProfile && (
-        <div className='lg:pb-6 px-2 md:px-10'>
+        <div className='lg:pb-6 px-2 mb-3 md:px-10'>
           <form
             onSubmit={addComment}
             className='flex gap-4'

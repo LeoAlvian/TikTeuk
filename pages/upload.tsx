@@ -137,12 +137,12 @@ const Upload = () => {
                     type="text" 
                     value={caption}
                     onChange={(e) => setCaption(e.target.value)}
-                    className='rounded outline-none text-md border-2 border-gray-200 p-2'
+                    className='rounded outline-none text-md border-2 border-gray-200 p-2 bg-white'
                 />
                 <label className="text-md font-medium">Choose a Category</label>
                 <select
                     onChange={(e) => setCategory(e.target.value)}
-                    className='outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer'
+                    className='outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer bg-white'
                 >
                     {topics.map((topic) => (
                         <option
